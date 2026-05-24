@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO META TAGS ===== -->
+<title>Khayali Duniya 3D — Apna Sapna Jio | Dream World</title>
+<meta name="description" content="Khayali Duniya ek 3D magical website hai jahan aap apna photo upload karein, apni khwahish likhen aur apna sapna poora karen. Depression door karen, sukoon payen. Free online dream world.">
+<meta name="keywords" content="khayali duniya, apna sapna, dream world, 3D website, khwahish poori karo, depression door karo, sukoon, Pakistani website, urdu website, sapna sach karo">
+<meta name="author" content="Khayali Duniya">
+<meta name="robots" content="index, follow">
+<meta name="language" content="Urdu, Hindi">
+<meta name="revisit-after" content="3 days">
+<meta name="rating" content="general">
+<link rel="canonical" href="https://khayaliduniya.github.io/">
+
+<!-- ===== OPEN GRAPH (Facebook, WhatsApp share) ===== -->
+<meta property="og:title" content="Khayali Duniya 3D — Apna Sapna Jio">
+<meta property="og:description" content="3D magical duniya jahan aapki har khwahish poori hoti hai. Apna photo lagao, jagah chunno, sapna likhon — aur khush ho jao!">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://khayaliduniya.github.io/">
+<meta property="og:image" content="https://khayaliduniya.github.io/preview.jpg">
+<meta property="og:locale" content="ur_PK">
+<meta property="og:site_name" content="Khayali Duniya">
+
+<!-- ===== TWITTER CARD ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Khayali Duniya 3D — Apna Sapna Jio">
+<meta name="twitter:description" content="3D magical duniya jahan aapki har khwahish poori hoti hai!">
+<meta name="twitter:image" content="https://khayaliduniya.github.io/preview.jpg">
+
+<!-- ===== SCHEMA.ORG (Google Rich Results) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Khayali Duniya 3D",
+  "description": "Ek 3D magical website jahan aap apna sapna jee sakte hain. Apna photo upload karen, apni khwahish likh kar sapna poora karen.",
+  "url": "https://khayaliduniya.github.io/",
+  "applicationCategory": "EntertainmentApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "PKR"
+  },
+  "inLanguage": ["ur", "hi"],
+  "keywords": "khayali duniya, dream world, sapna, khwahish, 3D, sukoon",
+  "creator": {
+    "@type": "Organization",
+    "name": "Khayali Duniya"
+  }
+}
+</script>
+
+<!-- ===== FAVICON ===== -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+
+<!-- ===== PERFORMANCE ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow-x:hidden;background:#0a0015;font-family:'Lato',sans-serif;color:#fff}
+#canvas3d{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0}
+#ui{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+.hero{text-align:center;padding:3.5rem 1.5rem 2rem}
+.badge{display:inline-block;border:1px solid rgba(200,160,255,.5);border-radius:50px;padding:7px 24px;font-size:12px;letter-spacing:.2em;color:#d4aaff;margin-bottom:1.2rem;background:rgba(100,50,180,.15);text-transform:uppercase}
+.hero h1{font-family:'Cinzel',serif;font-size:3rem;font-weight:900;background:linear-gradient(135deg,#ff9de2,#a78bfa,#67e8f9,#86efac);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.15;margin-bottom:.8rem}
+.hero p{font-size:15px;color:rgba(255,255,255,.7);max-width:500px;margin:0 auto;font-weight:300;line-height:1.9}
+.panels{width:100%;max-width:660px;padding:0 1rem 4rem;display:flex;flex-direction:column;gap:1.2rem}
+.glass{background:rgba(255,255,255,.06);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:24px;border:1px solid rgba(255,255,255,.12);padding:1.6rem;box-shadow:0 8px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08)}
+.stitle{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:#d4aaff;margin-bottom:1.1rem;display:flex;align-items:center;gap:10px;letter-spacing:.05em}
+.sic{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;border:1px solid rgba(255,255,255,.15)}
+.mrow{display:flex;gap:8px;flex-wrap:wrap}
+.mbtn{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);border-radius:50px;padding:9px 20px;font-size:13px;cursor:pointer;transition:all .2s;color:rgba(255,255,255,.7);font-family:'Lato',sans-serif}
+.mbtn:hover,.mbtn.on{background:rgba(167,139,250,.3);border-color:#a78bfa;color:#fff;transform:translateY(-1px);box-shadow:0 4px 16px rgba(167,139,250,.3)}
+.qbox{margin-top:1rem;padding:.9rem 1.1rem;border-left:2px solid #a78bfa;border-radius:0 12px 12px 0;background:rgba(167,139,250,.08)}
+.qt{font-style:italic;font-size:13px;color:#d4aaff;line-height:1.7}
+.pzone{border:2px dashed rgba(167,139,250,.4);border-radius:18px;padding:1.8rem;text-align:center;cursor:pointer;background:rgba(167,139,250,.04);position:relative;transition:all .25s}
+.pzone:hover{border-color:#a78bfa;background:rgba(167,139,250,.1)}
+.pzone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.pavatar{width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid #a78bfa;display:none;margin:0 auto .7rem;box-shadow:0 0 30px rgba(167,139,250,.5)}
+.pph{font-size:3.5rem;margin-bottom:.5rem}
+.phint{font-size:13px;color:rgba(255,255,255,.5)}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.di{border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:16px 10px;text-align:center;cursor:pointer;transition:all .22s;background:rgba(255,255,255,.04)}
+.di:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08)}
+.di.on{transform:translateY(-5px);box-shadow:0 8px 28px rgba(167,139,250,.35);background:rgba(167,139,250,.18);border-color:#a78bfa}
+.die{font-size:2rem;margin-bottom:6px}
+.dil{font-size:11px;font-weight:700;letter-spacing:.05em;color:rgba(255,255,255,.7)}
+.di.on .dil{color:#fff}
+.ltabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:.9rem}
+.lt{border:1px solid rgba(103,232,249,.2);background:rgba(103,232,249,.05);border-radius:50px;padding:8px 16px;font-size:13px;color:rgba(103,232,249,.8);cursor:pointer;transition:all .18s;font-family:'Lato',sans-serif}
+.lt:hover,.lt.on{background:rgba(103,232,249,.2);border-color:#67e8f9;color:#fff}
+.cusin{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:11px 16px;font-size:14px;color:#fff;outline:none;font-family:'Lato',sans-serif;transition:border-color .2s}
+.cusin:focus{border-color:#a78bfa}
+.cusin::placeholder{color:rgba(255,255,255,.3)}
+.wta{width:100%;min-height:110px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 16px;font-size:14px;font-family:'Lato',sans-serif;color:#fff;outline:none;resize:none;line-height:1.7;transition:border-color .2s}
+.wta:focus{border-color:#f9a8d4}
+.wta::placeholder{color:rgba(255,150,200,.35)}
+#miniworld{width:100%;height:220px;border-radius:18px;overflow:hidden;position:relative;background:#000;border:1px solid rgba(255,255,255,.1)}
+#miniworld canvas{width:100%!important;height:100%!important}
+.woverlay{position:absolute;bottom:0;left:0;right:0;padding:1rem 1.2rem;background:linear-gradient(transparent,rgba(0,0,0,.75));pointer-events:none}
+.wmain{font-family:'Cinzel',serif;font-size:1rem;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+.wsub{font-size:12px;color:rgba(255,255,255,.7);margin-top:3px}
+.wuserface{position:absolute;top:14px;left:14px;width:54px;height:54px;border-radius:50%;object-fit:cover;border:2px solid #a78bfa;display:none;box-shadow:0 0 20px rgba(167,139,250,.6)}
+.gbtn{width:100%;padding:17px;border-radius:50px;border:none;background:linear-gradient(135deg,#7c3aed,#0ea5e9,#059669);color:#fff;font-family:'Cinzel',serif;font-size:1.1rem;cursor:pointer;transition:all .25s;box-shadow:0 5px 30px rgba(124,58,237,.5);letter-spacing:.06em;position:relative;overflow:hidden}
+.gbtn:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(124,58,237,.6)}
+.gbtn:active{transform:scale(.98)}
+.res{display:none;border-radius:22px;padding:1.8rem;background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(14,165,233,.15));border:1px solid rgba(167,139,250,.35);text-align:center;animation:fadeUp .6s ease}
+.res.show{display:block}
+.ricon{font-size:3rem;margin-bottom:.6rem}
+.rtitle{font-family:'Cinzel',serif;font-size:1.3rem;color:#d4aaff;margin-bottom:.7rem;letter-spacing:.05em}
+.rmsg{font-size:14px;color:rgba(255,255,255,.8);line-height:1.8}
+
+/* Share buttons */
+.share-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:1.2rem}
+.sbtn{border:none;border-radius:50px;padding:10px 22px;font-size:13px;cursor:pointer;font-family:'Lato',sans-serif;font-weight:700;transition:all .2s}
+.sb-wa{background:#25d366;color:#fff}
+.sb-fb{background:#1877f2;color:#fff}
+.sb-tw{background:#1da1f2;color:#fff}
+.sbtn:hover{transform:translateY(-2px);opacity:.9}
+
+/* Footer SEO */
+footer{text-align:center;padding:2rem 1rem;color:rgba(255,255,255,.25);font-size:12px;line-height:1.8;max-width:660px;margin:0 auto}
+footer a{color:rgba(167,139,250,.5);text-decoration:none}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.sp{position:fixed;pointer-events:none;font-size:1.4rem;animation:sfx 1.4s ease-out forwards;z-index:9999}
+@keyframes sfx{0%{opacity:1;transform:translateY(0) rotate(0) scale(1)}100%{opacity:0;transform:translateY(100px) rotate(400deg) scale(0)}}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:rgba(167,139,250,.3);border-radius:10px}
+</style>
+</head>
+<body>
+
+<!-- SEO: Hidden text for search engines -->
+<div style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none" aria-hidden="true">
+  <h1>Khayali Duniya - Apna Sapna Jio Online Free</h1>
+  <p>Khayali Duniya ek free online 3D dream world website hai. Apna photo upload karein, apni khwahish likhen, aur apna sapna poora karen. Depression door karen, sukoon payen. Pakistani urdu website.</p>
+</div>
+
+<canvas id="canvas3d"></canvas>
+
+<div id="ui">
+<header class="hero">
+  <div class="badge">✦ Khayali Duniya 3D ✦</div>
+  <h1>Apna Sapna Jio</h1>
+  <p>Ek magical 3D duniya — apna photo lagao, khwahish likho, aur har sapna poora ho jaye. Depression ka andha aandhera chhaant jaye, zindagi rang-birangi ho jaye!</p>
+</header>
+
+<main class="panels">
+
+<!-- Mood -->
+<section class="glass" aria-label="Mood Selector">
+  <div class="stitle"><div class="sic" style="background:rgba(244,114,182,.15)">💆</div>Aaj Ka Mood Kya Hai?</div>
+  <div class="mrow">
+    <button class="mbtn on" onclick="setMood(this,'khush')">😊 Khush</button>
+    <button class="mbtn" onclick="setMood(this,'udaas')">😔 Udaas</button>
+    <button class="mbtn" onclick="setMood(this,'umeed')">🌈 Umeed</button>
+    <button class="mbtn" onclick="setMood(this,'sukoon')">🌸 Sukoon</button>
+  </div>
+  <div class="qbox"><div class="qt" id="mQ">"Khushi ek safar hai, manzil nahin — har pal mein dhoondhte raho."</div></div>
+</section>
+
+<!-- Photo -->
+<section class="glass" aria-label="Photo Upload">
+  <div class="stitle"><div class="sic" style="background:rgba(167,139,250,.15)">🤳</div>Apna Photo Lagao</div>
+  <div class="pzone" onclick="document.getElementById('pIn').click()" role="button" aria-label="Photo upload karne ke liye click karen">
+    <input type="file" id="pIn" accept="image/*" onchange="handlePhoto(event)" aria-label="Photo file chunen">
+    <img class="pavatar" id="pPrev" src="" alt="Aapka photo">
+    <div class="pph" id="pPH">🧑</div>
+    <div class="phint" id="pHint">Click karke apna photo upload karo — 3D duniya mein tumhara chehra chamkayga!</div>
+  </div>
+</section>
+
+<!-- Dream -->
+<section class="glass" aria-label="Dream Selector">
+  <div class="stitle"><div class="sic" style="background:rgba(250,204,21,.1)">🌟</div>Kaunsa Sapna Chahte Ho?</div>
+  <div class="dgrid">
+    <div class="di" onclick="selectDream(this,'car','🚗')" role="button" aria-label="Gadi ka sapna"><div class="die">🚗</div><div class="dil">MEHNGA GADI</div></div>
+    <div class="di" onclick="selectDream(this,'love','💖')" role="button" aria-label="Pyar ka sapna"><div class="die">💖</div><div class="dil">PYAR & SAATH</div></div>
+    <div class="di" onclick="selectDream(this,'travel','✈️')" role="button" aria-label="Safar ka sapna"><div class="die">✈️</div><div class="dil">DUNIYA GHOOMNA</div></div>
+    <div class="di" onclick="selectDream(this,'home','🏡')" role="button" aria-label="Ghar ka sapna"><div class="die">🏡</div><div class="dil">APNA GHAR</div></div>
+    <div class="di" onclick="selectDream(this,'career','💼')" role="button" aria-label="Kamyabi ka sapna"><div class="die">💼</div><div class="dil">KAMYABI</div></div>
+    <div class="di" onclick="selectDream(this,'health','🌿')" role="button" aria-label="Sehat ka sapna"><div class="die">🌿</div><div class="dil">SEHAT & SUKOON</div></div>
+  </div>
+</section>
+
+<!-- Location -->
+<section class="glass" aria-label="Location Selector">
+  <div class="stitle"><div class="sic" style="background:rgba(103,232,249,.1)">🗺️</div>Kahan Jaana Chahte Ho?</div>
+  <div class="ltabs" id="ltabs">
+    <div class="lt on" onclick="selLoc(this,'Paris France',0x334466)">🗼 Paris</div>
+    <div class="lt" onclick="selLoc(this,'Maldives Samundar',0x003366)">🏝️ Maldives</div>
+    <div class="lt" onclick="selLoc(this,'Himalaya Chotiyaan',0x223344)">🏔️ Himalaya</div>
+    <div class="lt" onclick="selLoc(this,'Dubai Roshni',0x1a0a00)">🌆 Dubai</div>
+    <div class="lt" onclick="selLoc(this,'Lahore Galiyan',0x1a1a2e)">🏙️ Lahore</div>
+    <div class="lt" onclick="selLoc(this,'Karachi Samundar',0x001a2e)">🌊 Karachi</div>
+  </div>
+  <input class="cusin" id="cusL" placeholder="Ya khud likho apni jagah... (jaise: Rome Italy, Green Valley, Apne gaon mein)" oninput="cusLoc(this.value)" aria-label="Apni marzi ki jagah likho">
+</section>
+
+<!-- Wish -->
+<section class="glass" aria-label="Wish Box">
+  <div class="stitle"><div class="sic" style="background:rgba(249,168,212,.1)">🌠</div>Apni Khwahish Likho</div>
+  <textarea class="wta" id="wTxt" placeholder="Dil ki baat yahan likho... Mujhe ek khoobsurat zindagi chahiye, pyar chahiye, sukoon chahiye, meri tamam mushkilat dur ho jayen..." aria-label="Apni khwahish likho"></textarea>
+</section>
+
+<!-- Mini 3D World -->
+<section class="glass" aria-label="3D Dream World Preview">
+  <div class="stitle"><div class="sic" style="background:rgba(134,239,172,.1)">🌍</div>Teri 3D Khayali Duniya</div>
+  <div id="miniworld" aria-label="3D dream world animation">
+    <canvas id="miniCanvas"></canvas>
+    <img class="wuserface" id="wFace" src="" alt="Tumhara chehra 3D duniya mein">
+    <div class="woverlay">
+      <div class="wmain" id="wMain">Apna sapna chunno...</div>
+      <div class="wsub" id="wSub">3D duniya tumhara intezaar kar rahi hai ✨</div>
+    </div>
+  </div>
+</section>
+
+<!-- Grant -->
+<button class="gbtn" onclick="grantWish()" aria-label="Apna sapna poora karo">✨ Mera Sapna Poora Karo ✨</button>
+
+<!-- Result -->
+<div class="res" id="res" role="alert" aria-live="polite">
+  <div class="ricon" id="rI">🌟</div>
+  <div class="rtitle" id="rT">Mubarak Ho!</div>
+  <div class="rmsg" id="rM"></div>
+  <div class="share-row">
+    <button class="sbtn sb-wa" onclick="shareWA()">📱 WhatsApp Share</button>
+    <button class="sbtn sb-fb" onclick="shareFB()">👍 Facebook Share</button>
+    <button class="sbtn sb-tw" onclick="shareTW()">🐦 Twitter Share</button>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <p><strong style="color:rgba(167,139,250,.6)">Khayali Duniya 3D</strong> — Apna Sapna Jio</p>
+  <p>Free online dream world | Pakistani Urdu Website | Khwahish poori karo</p>
+  <p style="margin-top:.5rem">Tags: khayali duniya · sapna · dream world · sukoon · depression door karo · khwahish · Pakistani website · urdu entertainment</p>
+  <p style="margin-top:.8rem;font-size:11px">© 2025 Khayali Duniya · Sab ke liye bilkul free</p>
+</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ============ BIG 3D BACKGROUND ============
+const bgScene=new THREE.Scene();
+const bgCam=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+bgCam.position.z=30;
+const bgRenderer=new THREE.WebGLRenderer({canvas:document.getElementById('canvas3d'),antialias:true,alpha:true});
+bgRenderer.setSize(window.innerWidth,window.innerHeight);
+bgRenderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+bgScene.background=new THREE.Color(0x04000f);
+bgScene.fog=new THREE.FogExp2(0x04000f,0.018);
+
+const starGeo=new THREE.BufferGeometry();
+const starPos=new Float32Array(3000*3);
+for(let i=0;i<3000*3;i++) starPos[i]=(Math.random()-.5)*200;
+starGeo.setAttribute('position',new THREE.BufferAttribute(starPos,3));
+bgScene.add(new THREE.Points(starGeo,new THREE.PointsMaterial({color:0xffffff,size:0.18,transparent:true,opacity:0.85})));
+
+const orbColors=[0xa78bfa,0x67e8f9,0xf9a8d4,0x86efac,0xfde68a];
+const orbs=[];
+for(let i=0;i<18;i++){
+  const o=new THREE.Mesh(new THREE.SphereGeometry(.3+Math.random()*.5,16,16),new THREE.MeshBasicMaterial({color:orbColors[i%5],transparent:true,opacity:.2+Math.random()*.15,wireframe:Math.random()>.6}));
+  o.position.set((Math.random()-.5)*50,(Math.random()-.5)*30,(Math.random()-.5)*20-5);
+  o._s={x:(Math.random()-.5)*.006,y:(Math.random()-.5)*.004};
+  bgScene.add(o);orbs.push(o);
+}
+const rings=[];
+for(let i=0;i<5;i++){
+  const r=new THREE.Mesh(new THREE.TorusGeometry(4+i*2.5,.06,8,60),new THREE.MeshBasicMaterial({color:orbColors[i],transparent:true,opacity:.12}));
+  r.rotation.x=Math.random()*Math.PI;r.rotation.y=Math.random()*Math.PI;
+  r.position.set((Math.random()-.5)*20,(Math.random()-.5)*10,-10-i*3);
+  bgScene.add(r);rings.push(r);
+}
+const petals=[];
+for(let i=0;i<25;i++){
+  const p=new THREE.Mesh(new THREE.PlaneGeometry(.35,.5),new THREE.MeshBasicMaterial({color:[0xf9a8d4,0xa78bfa,0x86efac,0x67e8f9][i%4],transparent:true,opacity:.4,side:THREE.DoubleSide}));
+  p.position.set((Math.random()-.5)*60,(Math.random()-.5)*40,(Math.random()-.5)*15);
+  p._vy=-(0.01+Math.random()*.015);p._vx=(Math.random()-.5)*.006;
+  bgScene.add(p);petals.push(p);
+}
+let mx=0,my=0;
+document.addEventListener('mousemove',e=>{mx=(e.clientX/window.innerWidth-.5)*.4;my=-(e.clientY/window.innerHeight-.5)*.3;});
+document.addEventListener('touchmove',e=>{if(e.touches[0]){mx=(e.touches[0].clientX/window.innerWidth-.5)*.4;my=-(e.touches[0].clientY/window.innerHeight-.5)*.3;}},{passive:true});
+
+function bgAnimate(){
+  requestAnimationFrame(bgAnimate);
+  orbs.forEach(o=>{o.position.x+=o._s.x;o.position.y+=o._s.y;if(Math.abs(o.position.x)>28)o._s.x*=-1;if(Math.abs(o.position.y)>18)o._s.y*=-1;o.rotation.x+=.003;o.rotation.y+=.004;});
+  rings.forEach((r,i)=>{r.rotation.z+=.0015+i*.0005;r.rotation.x+=.001;});
+  petals.forEach(p=>{p.position.y+=p._vy;p.position.x+=p._vx;p.rotation.z+=.01;if(p.position.y<-22){p.position.y=22;p.position.x=(Math.random()-.5)*60;}});
+  bgCam.position.x+=(mx*8-bgCam.position.x)*.03;
+  bgCam.position.y+=(my*5-bgCam.position.y)*.03;
+  bgCam.lookAt(0,0,0);
+  bgRenderer.render(bgScene,bgCam);
+}
+bgAnimate();
+window.addEventListener('resize',()=>{bgCam.aspect=window.innerWidth/window.innerHeight;bgCam.updateProjectionMatrix();bgRenderer.setSize(window.innerWidth,window.innerHeight);});
+
+// ============ MINI 3D SCENE ============
+const mScene=new THREE.Scene();
+const mCam=new THREE.PerspectiveCamera(60,1,.1,200);
+mCam.position.set(0,6,14);mCam.lookAt(0,0,0);
+const mCanvas=document.getElementById('miniCanvas');
+const mRenderer=new THREE.WebGLRenderer({canvas:mCanvas,antialias:true});
+mRenderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+mRenderer.shadowMap.enabled=true;
+mScene.background=new THREE.Color(0x0a0028);
+mScene.fog=new THREE.Fog(0x0a0028,20,60);
+mScene.add(new THREE.AmbientLight(0x221133,1.5));
+const dL=new THREE.DirectionalLight(0xffffff,1.2);dL.position.set(5,10,5);dL.castShadow=true;mScene.add(dL);
+const pL1=new THREE.PointLight(0xa78bfa,2,20);pL1.position.set(-4,3,2);mScene.add(pL1);
+const pL2=new THREE.PointLight(0x67e8f9,1.5,18);pL2.position.set(4,2,-2);mScene.add(pL2);
+const ground=new THREE.Mesh(new THREE.CircleGeometry(20,64),new THREE.MeshPhongMaterial({color:0x1a0a3a,shininess:30}));
+ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;mScene.add(ground);
+
+function makeTree(x,z,h,c){
+  const trunk=new THREE.Mesh(new THREE.CylinderGeometry(.08,.12,h*.35,6),new THREE.MeshPhongMaterial({color:0x4a2800}));
+  trunk.position.set(x,h*.175,z);trunk.castShadow=true;mScene.add(trunk);
+  const top=new THREE.Mesh(new THREE.ConeGeometry(h*.25,h*.7,7),new THREE.MeshPhongMaterial({color:c,emissive:c,emissiveIntensity:.12}));
+  top.position.set(x,h*.7,z);top.castShadow=true;mScene.add(top);
+}
+[[-5,5],[-7,-3],[5,6],[7,-2],[-3,8],[3,-7],[8,3],[-8,2],[-6,-7],[6,-5]].forEach(([x,z],i)=>makeTree(x,z,1.5+Math.random(),[0x1a6b2a,0x0d4f1a,0x2d8a3a,0x1b5e20][i%4]));
+
+const fClrs=[0xff69b4,0xff99cc,0xffaaee,0xcc66ff,0x99ccff,0xffcc44];
+for(let i=0;i<40;i++){
+  const a=Math.random()*Math.PI*2,r=2+Math.random()*10;
+  const x=Math.cos(a)*r,z=Math.sin(a)*r;
+  const stem=new THREE.Mesh(new THREE.CylinderGeometry(.02,.02,.3,4),new THREE.MeshBasicMaterial({color:0x4caf50}));
+  stem.position.set(x,.15,z);mScene.add(stem);
+  const fl=new THREE.Mesh(new THREE.SphereGeometry(.08,6,6),new THREE.MeshBasicMaterial({color:fClrs[i%6]}));
+  fl.position.set(x,.34,z);mScene.add(fl);
+}
+const mStarPos=new Float32Array(800*3);for(let i=0;i<800*3;i++) mStarPos[i]=(Math.random()-.5)*80;
+const mStarGeo=new THREE.BufferGeometry();mStarGeo.setAttribute('position',new THREE.BufferAttribute(mStarPos,3));
+mScene.add(new THREE.Points(mStarGeo,new THREE.PointsMaterial({color:0xffffff,size:.1})));
+const moon=new THREE.Mesh(new THREE.SphereGeometry(1.5,16,16),new THREE.MeshBasicMaterial({color:0xfffde7}));
+moon.position.set(-8,12,-15);mScene.add(moon);
+
+const person=new THREE.Mesh(new THREE.CylinderGeometry(.28,.28,1.2,8),new THREE.MeshPhongMaterial({color:0xa78bfa,emissive:0x4a148c,emissiveIntensity:.3}));
+person.position.set(0,.6,0);person.castShadow=true;mScene.add(person);
+const head=new THREE.Mesh(new THREE.SphereGeometry(.32,16,16),new THREE.MeshPhongMaterial({color:0xffe0b2}));
+head.position.set(0,1.7,0);mScene.add(head);
+
+let dreamObj=null;
+function showDreamObj(t){
+  if(dreamObj) mScene.remove(dreamObj);
+  const configs={car:{geo:new THREE.BoxGeometry(1.6,.5,.8),color:0x1565c0,emissive:0x0d47a1},love:{geo:new THREE.TorusGeometry(.6,.18,8,20),color:0xe91e63,emissive:0xad1457},travel:{geo:new THREE.OctahedronGeometry(.7,0),color:0x0288d1,emissive:0x01579b},home:{geo:new THREE.ConeGeometry(.7,.9,4),color:0xe65100,emissive:0xbf360c},career:{geo:new THREE.BoxGeometry(.7,1,.5),color:0x7b1fa2,emissive:0x4a148c},health:{geo:new THREE.SphereGeometry(.6,16,16),color:0x1b5e20,emissive:0x2e7d32}};
+  const c=configs[t]||configs.health;
+  dreamObj=new THREE.Mesh(c.geo,new THREE.MeshPhongMaterial({color:c.color,emissive:c.emissive,emissiveIntensity:.3,shininess:80}));
+  dreamObj.position.set(2.5,1.5,0);dreamObj.castShadow=true;mScene.add(dreamObj);
+}
+
+function resizeMini(){
+  const cont=document.getElementById('miniworld');
+  const w=cont.clientWidth,h=cont.clientHeight||220;
+  mRenderer.setSize(w,h);mCam.aspect=w/h;mCam.updateProjectionMatrix();
+}
+resizeMini();window.addEventListener('resize',resizeMini);
+let mAngle=0;
+function mAnimate(){
+  requestAnimationFrame(mAnimate);
+  mAngle+=.008;
+  mCam.position.x=Math.sin(mAngle)*13;mCam.position.z=Math.cos(mAngle)*13;mCam.lookAt(0,1,0);
+  person.rotation.y=mAngle+Math.PI;head.rotation.y=mAngle+Math.PI;
+  pL1.position.x=Math.sin(mAngle*1.3)*5;pL1.position.z=Math.cos(mAngle*1.3)*5;
+  if(dreamObj){dreamObj.rotation.y+=.02;dreamObj.position.y=1.5+Math.sin(Date.now()*.002)*.3;}
+  mRenderer.render(mScene,mCam);
+}
+mAnimate();
+
+// ============ APP STATE ============
+const S={mood:'khush',dream:null,dEmoji:'',loc:'Paris France',photo:null};
+const moodQ={khush:'"Khushi ek safar hai, manzil nahin — har pal mein dhoondhte raho."',udaas:'"Har raat ke baad subah aati zaroor hai — teri subah bohot khoobsurat hogi."',umeed:'"Umeed woh chiragh hai jo andhere mein kabhi nahi bujhta."',sukoon:'"Sukoon andar se milta hai — zindagi ki har cheez iska intezaar kar rahi hai."'};
+const dreamMsgs={car:['Audi ki chaabi tumhare haath mein — safar aaj se shuru','Raat ki chamakti sadkon par tum roshni ki tarah ho'],love:['Woh khoobsurat insaan tumhare liye ruk raha hai — hamesha','Ek aisi mohabbat jo sirf tumhari hai'],travel:['Plane runway par hai — tumhara safar ab shuru hua','Duniya ke kone kone mein tumhara naam likha hai'],home:['Ghar ki khushboo, aasman ka rang, sab tumhara','Ek aisi jagah jahan wapas aana dil ko sakoon de'],career:['Tumhari mehnat ne tumhe wahan pohuncha diya','Kamyabi ne tumhara darwaza khud khatkhataya'],health:['Jism aur rooh dono tandurust aur khush','Har nayi subah noor lekar aati hai sirf tumhare liye']};
+const moodEnd={khush:'Tumhari khushi duniya ko roshni deti hai — muskurate raho.',udaas:'Yaad rakho: jo toota hai woh phir se jud sakta hai. Tum akele nahin ho.',umeed:'Umeed ne tujhe yahan tak pohunchaya — aage aur zyada khoobsurat hai.',sukoon:'Sukoon mil gaya — ab bas isi mein raho, yahi asli zindagi hai.'};
+
+function setMood(el,m){document.querySelectorAll('.mbtn').forEach(b=>b.classList.remove('on'));el.classList.add('on');S.mood=m;document.getElementById('mQ').textContent=moodQ[m];}
+function handlePhoto(e){
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    S.photo=ev.target.result;
+    document.getElementById('pPrev').src=ev.target.result;document.getElementById('pPrev').style.display='block';
+    document.getElementById('pPH').style.display='none';
+    document.getElementById('pHint').textContent='Wah! Bilkul tumhara chehra 3D duniya mein aa gaya! 😊';
+    document.getElementById('wFace').src=ev.target.result;document.getElementById('wFace').style.display='block';
+    const tex=new THREE.TextureLoader().load(ev.target.result);
+    head.material=new THREE.MeshPhongMaterial({map:tex});
+    updateWorld();
+  };
+  r.readAsDataURL(f);
+}
+function selectDream(el,t,em){document.querySelectorAll('.di').forEach(d=>d.classList.remove('on'));el.classList.add('on');S.dream=t;S.dEmoji=em;showDreamObj(t);updateWorld();}
+function selLoc(el,l,bg){document.querySelectorAll('.lt').forEach(t=>t.classList.remove('on'));el.classList.add('on');S.loc=l;if(bg){mScene.background=new THREE.Color(bg);mScene.fog.color=new THREE.Color(bg);}document.getElementById('cusL').value='';updateWorld();}
+function cusLoc(v){if(v.trim()){document.querySelectorAll('.lt').forEach(t=>t.classList.remove('on'));S.loc=v;updateWorld();}}
+function updateWorld(){
+  const wm=document.getElementById('wMain'),ws=document.getElementById('wSub');
+  if(S.dream&&S.loc){wm.textContent=`Tum ${S.loc} mein ho ${S.dEmoji}`;ws.textContent=dreamMsgs[S.dream]?dreamMsgs[S.dream][0]:'Tera sapna bilkul sach lag raha hai...';}
+  else if(S.loc){wm.textContent=`Tum abhi ${S.loc} mein pohunch gaye!`;ws.textContent='Koi ek sapna bhi chunlo ✨';}
+}
+function grantWish(){
+  const wish=document.getElementById('wTxt').value.trim();
+  spawnStars();
+  const icons={car:'🚗',love:'💖',travel:'✈️',home:'🏡',career:'💼',health:'🌿'};
+  document.getElementById('rI').textContent=(S.dream?icons[S.dream]:'🌟')+' ✨';
+  document.getElementById('rT').textContent='Tumhara Sapna Poora Hua! 🎉';
+  let html='';
+  if(wish) html+=`<em style="color:#d4aaff;display:block;margin-bottom:.8rem">"${wish.substring(0,150)}${wish.length>150?'...':''}"</em>`;
+  if(S.dream&&dreamMsgs[S.dream]){const m=dreamMsgs[S.dream];html+=`<strong style="color:#67e8f9">${m[Math.floor(Math.random()*m.length)]}</strong><br><br>`;}
+  html+=`<span style="color:rgba(255,255,255,.7);font-size:13px">${moodEnd[S.mood]||moodEnd.khush}</span>`;
+  html+=`<br><span style="color:rgba(255,255,255,.4);font-size:12px;display:block;margin-top:.7rem">📍 ${S.loc||'Teri 3D khayali duniya'}</span>`;
+  document.getElementById('rM').innerHTML=html;
+  const res=document.getElementById('res');res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'nearest'});
+  pL1.color=new THREE.Color(0xffd700);pL2.color=new THREE.Color(0xff69b4);
+  setTimeout(()=>{pL1.color=new THREE.Color(0xa78bfa);pL2.color=new THREE.Color(0x67e8f9);},2500);
+}
+function spawnStars(){
+  const em=['⭐','🌟','✨','💫','🌸','🌺','💖','🎉','🦋','🌼'];
+  for(let i=0;i<22;i++){setTimeout(()=>{const s=document.createElement('span');s.className='sp';s.textContent=em[Math.floor(Math.random()*em.length)];s.style.left=Math.random()*88+'%';s.style.top=(10+Math.random()*60)+'%';document.body.appendChild(s);setTimeout(()=>s.remove(),1600);},i*65);}
+}
+
+// Share functions
+function shareWA(){const txt=encodeURIComponent('Yaar! Mein ne Khayali Duniya 3D dekhii — apna sapna wahan poora kiya! Tum bhi dekho: '+window.location.href);window.open('https://wa.me/?text='+txt,'_blank');}
+function shareFB(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank');}
+function shareTW(){const txt=encodeURIComponent('Apna sapna 3D mein dekha! Khayali Duniya par jaao: '+window.location.href+' #KhayaliDuniya #Sapna #Dream');window.open('https://twitter.com/intent/tweet?text='+txt,'_blank');}
+
+updateWorld();
+
+// Page visibility for performance
+document.addEventListener('visibilitychange',()=>{if(document.hidden){bgRenderer.setAnimationLoop(null);}});
+</script>
+</body>
+</html>
